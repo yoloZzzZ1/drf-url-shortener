@@ -7,9 +7,7 @@ class Token(models.Model):
     Token storage model
     """
 
-    full_url = models.URLField(
-        unique=True,
-    )
+    full_url = models.URLField()
 
     short_url = models.CharField(
         max_length=20,
