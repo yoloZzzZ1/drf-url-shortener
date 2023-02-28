@@ -24,7 +24,6 @@ class TokenCreateSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         short_url = generate_short_url()
         full_url = validated_data['full_url']
-        validated_data['short_url'] = short_url
         instance, created = Token.objects.get_or_create(full_url=full_url)
         if created:
             setattr(instance, 'short_url', short_url)
