@@ -14,7 +14,7 @@ def get_full_url(url: str):
     except Token.DoesNotExist:
         raise KeyError('Try another url. No such urls in DB')
     
-    Token.objects.filter().update(requests_count=F("requests_count")+1)
+    Token.objects.filter(pk=token.pk).update(requests_count=F("requests_count")+1)
     return getattr(token, 'full_url')
 
 
